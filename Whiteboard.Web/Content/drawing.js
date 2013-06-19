@@ -2,11 +2,6 @@
 /// <reference path="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" />
 /// <reference path="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js" />
 
-/*
-    Ólafur Jóhannsson
-    Háskólinn í Reykjavík
-    Vefforritun II
-*/
 
 $(document).ready(function () {
 
