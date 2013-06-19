@@ -1,0 +1,142 @@
+﻿<div id="templates" style="display: none; margin-right: 4em; margin-top: 8em; float: right;">
+    <hgroup>
+        <h2 style="color: white;">Your saved templates</h2>
+        <h3 title="Drag a template and drop it on the canvas" style="color: white;">You can drag and drop templates</h3>
+    </hgroup>
+
+</div>
+<div id="wrapper">
+    <div id="header">
+        <div id="logo">
+            <h1><a href="#">Whiteboard</a></h1>
+            <hr />
+        </div>
+    </div>
+    <input type="hidden" value="@ViewBag.ImageData" id="imgData" />
+
+    <section id="control">
+        <h3 title="The really ugly control bar" style="color: white;">Ugly left control bar</h3>
+        <div id="menu">
+
+            <div id="dialog">
+                <textarea class="mathdoxformula" rows="10" cols="80"><![CDATA[
+    <OMOBJ version="2.0" xmlns="http://www.openmath.org/OpenMath">
+      <OMS cd="canvas" name="input_box"/>
+    </OMOBJ>]]>
+  </textarea>
+            </div>
+
+
+            <label for="widthElements">
+                <br />
+                Line width:
+                <input type="range" min="1" max="100" value="12" id="widthElements" /><label id="currLineWidth">12px</label>
+            </label>
+            <br />
+
+
+            <label for="color">
+                Color:
+                        <select id="color">
+                            <option value="Black">Black</option>
+                            <option value="Red">Red</option>
+                            <option value="Green">Green</option>
+                            <option value="Blue">Blue</option>
+                            <option value="White">White</option>
+                        </select>
+            </label>
+            <br />
+
+            <div id="extraMenus" style="visibility: hidden;">
+                <label for="font">
+                    Font family: 
+            <select id="fonts">
+                <option value="Facebook Letter Faces" selected>Facebook Letter Faces</option>
+                <option value="Courier New">Courier New</option>
+                <option value="arial">Arial</option>
+                <option value="sans-serif">Sans-serif</option>
+            </select>
+                </label>
+                <br />
+                <label for="fontSize">
+                    Font size:
+                    <input type="range" min="1" max="200" value="24" id="fontSize" /><label id="currfontSize">24px</label>
+                </label>
+                <br />
+                <label for="fontStyle">
+                    Font style:
+                        <select id="fontStyle">
+                            <option value="normal">Normal</option>
+                            <option value="italic">Italic</option>
+                            <option value="oblique">Oblique</option>
+                        </select>
+                </label>
+            </div>
+        </div>
+    </section>
+    <div id="page">
+        <div id="container">
+            <div id="default">
+                <h1>#{title}</h1>
+                <p>#{text}</p>
+            </div>
+        </div>
+        <section id="main">
+            <div id="draw">
+                <div id="prevnext">
+                    <input type="button" id="prev" value="Previous drawing" />
+                    <input type="button" id="next" value="Next drawing" />
+                </div>
+                <form>
+                    <section id="radioBtns">
+                        <input type="radio" name="radio" id="radioPen" checked="checked" value="Pencil" /><label for="radioPen">Pencil</label>
+                        <input type="radio" name="radio" id="radioRect" value="Rectangle" /><label for="radioRect">Rectangle</label>
+                        <input type="radio" name="radio" id="radioCirc" value="Circle" /><label for="radioCirc">Circle</label>
+                        <input type="radio" name="radio" id="radioLine" value="Line" /><label for="radioLine">Line</label>
+                        <input type="radio" name="radio" id="radioText" value="Text" /><label for="radioText">Text</label>
+                        <input type="radio" name="radio" id="radioMath" value="Math" /><label for="radioMath">Math</label>
+                        <input type="radio" name="radio" id="radioEraser" value="Eraser" /><label for="radioEraser">Eraser</label>
+                        <input type="radio" name="radio" id="radioSelect" value="Select" /><label for="radioSelect">Select</label>
+                    </section>
+                </form>
+            </div>
+            <section id="whiteboard">
+                <canvas id="drawing1" width="720" height="640">
+                    <p>Canvas is not supported.</p>
+                </canvas>
+                <canvas id="drawing2" width="720" height="640" style="display: none;">
+                    <p>Canvas is not supported.</p>
+                </canvas>
+                <canvas id="drawing3" width="720" height="640" style="display: none;">
+                    <p>Canvas is not supported.</p>
+                </canvas>
+                <canvas id="drawing4" width="720" height="640" style="display: none;">
+                    <p>Canvas is not supported.</p>
+                </canvas>
+            </section>
+        </section>
+        <div id="lowerControl">
+            <input type="button" title="Undo last operation" id="undo" value="Undo" />
+            <input type="button" title="Redo last operation" id="redo" value="Redo" />
+            <input type="button" title="Save a template" id="saveTemplate" value="Save template" />
+            <input type="button" title="Clear" id="clear" value="Clear" />
+
+            <input type="button" title="Declick checkbox 'default save path' to save on a custom location" id="save" value="Save image" />
+
+            <input type="button" title="Load image" id="load" value="Load image" />
+        </div>
+        @using (Html.BeginForm("LoadImage", "Home", FormMethod.Post, new { id = "imageForm", enctype = "multipart/form-data" }))
+        {
+            <input type="file" style="display: none;" name="image" id="image" value="Load image" />
+        }
+
+    </div>
+    <label for="defaultSave" title="The default save path is a relative folder on the server, decheck to save on custom location">
+        Default save path 
+                            <input type="checkbox" checked id="defaultSave" value="Default save path" title="The default save path is a relative folder on the server, decheck to save on custom location" />
+    </label>
+    <br class="clearfix" />
+
+
+</div>
+<div id="footer">&copy; 2013 <a href="#">Ólafur Jóhannsson</a> | Whiteboard Application</div>

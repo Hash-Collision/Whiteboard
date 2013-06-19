@@ -1,0 +1,56 @@
+#wrapper {
+    background: #000000 url(images/img02.gif) repeat-x top left;
+    box-shadow: inset 0px 0px 30px 0px rgba(255,255,255,0.05), 0px 0px 30px 0px rgba(0,0,0,0.5);
+      display: block;
+   width:66em;
+	margin:0px auto;
+    margin-top: -2em;
+}
+
+body {
+    color: #AFAFAF;
+    background: #040606 url(images/img01.gif) repeat-x top left;
+    font-size: 12pt;
+    margin:10px 0px; padding:0px;
+	text-align:center;
+}
+
+#prevnext{
+    margin-bottom:0.2em;
+}
+#menu {
+    /*position: absolute;*/
+    box-shadow: inset 0px 0px 5px 0px rgba(110,110,110,110.05), inset 0px 3px 15px 0px rgba(0,0,0,0.5), 0px 1px 1px 0px rgba(255,255,255,0.08);
+    font-family: Kreon, sans-serif;
+    display: inline;
+}
+
+#drawing1, #drawing2, #drawing3, #drawing4 {
+    background: white;
+    border-radius: 15px;
+    margin-top: 10px;
+}
+
+#logo{
+    padding-top: 10px;
+}
+#logo h1 {
+    margin-bottom: -0.1em;
+    font-size: 3.25em;
+    font-family: Kreon, sans-serif;
+}
+
+#logo a {
+    color: #FFF;
+    text-decoration: none;
+}
+
+#whiteboard {
+    display: inline;
+}
+
+#control {
+    float: left;
+margin-left: -16em;
+    display: inline;
+}

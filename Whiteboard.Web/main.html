@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Programming Assignment 1 - Whiteboard Application</title>
+
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.0/themes/base/jquery-ui.css" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+    <link rel="Stylesheet" href="style.css" />
+    <script type="text/javascript" src="main.js"></script>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="header">
+            <div id="logo">
+                <h1><a href="#">Whiteboard</a></h1>
+                 <hr />
+            </div>
+        </div>
+        <div id="page">
+                <section id="main">
+                   <div id="draw">
+                        <form>
+                            <section id="radio">
+                                <input type="radio" name="radio" id="radioPen" checked="checked" value="pencil" /><label for="radioPen">Pen</label>
+                                <input type="radio" name="radio" id="radioRect" value="rect" /><label for="radioRect">Rectangle</label>
+                                <input type="radio" name="radio" id="radioCirc" /><label for="radioCirc">Circle</label>
+                                <input type="radio" name="radio" id="radioLine" /><label for="radioLine">Line</label>
+                                <input type="radio" name="radio" id="radioText" /><label for="radioText">Text</label>
+                                <input type="radio" name="radio" id="radioMath" /><label for="radioMath">Math</label>
+                                <input type="radio" name="radio" id="radioEraser" /><label for="radioEraser">Eraser</label>
+                                <input type="radio" name="radio" id="radioSelect" /><label for="radioSelect">Select</label>
+                            </section>
+                        </form>
+                    
+                    <section id="whiteboard">
+                        <canvas id="drawing" width="720" height="640">
+                            <p>Canvas is not supported.</p>
+                        </canvas>
+                    </section>
+                    </div>
+                    <section id="control">
+                        <div id="menu">
+                        <input type="button" title="Undo last operation" id="undo" value="Undo" />
+                        <input type="button" title="Redo last operation" id="redo" value="Redo" />
+                        <input type="button" title="Save image" id="save" value="Save image" />
+                        <input type="button" title="Load image" id="load" value="Load image" />
+                        <input type="button" title="Save template" id="saveTemplate" value="Save template" />
+                        <label for="lineWidth"><br />
+                            Line width:
+                            <select id="widthElements">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="4">4</option>
+                                <option value="8">8</option>
+                                <option value="12">12</option>
+                                <option value="16">16</option>
+                                <option value="24">24</option>
+                                <option value="32">32</option>
+                                <option value="48">48</option>
+                                <option value="64">64</option>
+                                <option value="72">72</option>
+                            </select>
+                        </label>
+                        <br />
+                        <label for="font">
+                            Font:
+            <select id="fonts">
+                <option value="Coureier New">Courier New</option>
+            </select>
+                        </label>
+                            </div>
+                    </section>
+                     </section>
+                    </div>
+               
+                <br class="clearfix" />
+           
+
+        </div>
+    <div id="footer">&copy; 2013 Ólafur Jóhannsson | Whiteboard Application</div>
+</body>
+</html>
+
+
+
+<!--<script>
+    var canvas = document.getElementById("drawing");
+    var context = canvas.getContext("2d");
+    $("#radio").buttonset();
+    $("input[type=button]").button().click(function (e) {
+        e.preventDefault();
+    });
+    var mouseDown = false;
+    $(canvas).mousedown(function (e) {
+        var x = e.pageX - this.offsetLeft;
+        var y = e.pageY - this.offsetTop;
+        mouseDown = true;
+        context.beginPath();
+        context.moveTo(x, y);
+    });
+    $(canvas).mouseup(function (e) {
+        mouseDown = false;
+    });
+
+    $(canvas).mousemove(function (e) {
+        var x = e.pageX - this.offsetLeft;
+        var y = e.pageY - this.offsetTop;
+
+        if (mouseDown) {
+            context.lineTo(x, y);
+            context.stroke();
+        }
+    });
+    /*$(canvas).mousemove(function (e) {
+        toX = e.pageX - this.offsetLeft;
+        toY = e.pageY - this.offsetTop;
+        if (mouseDown) {
+            context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+            var w = Math.min(toX - startX);
+            var h = Math.min(toY - startY);
+            context.strokeRect(startX, startY, w, h);
+        }
+    });*/
+
+</script>-->
+
+<!--<script>
+    var canvas = document.getElementById("drawing");
+    var context = canvas.getContext("2d");
+    $("#radio").buttonset();
+    $("input[type=button]").button().click(function (e) {
+        e.preventDefault();
+    });
+    var startX, startY, toX, toY;
+    var mouseDown = false;
+    $(canvas).mousedown(function (e) {
+        startX = e.pageX - this.offsetLeft;
+        startY = e.pageY - this.offsetTop;
+        mouseDown = true;
+
+    });
+    $(canvas).mouseup(function (e) {
+        mouseDown = false;
+    });
+    $(canvas).mousemove(function (e) {
+        toX = e.pageX - this.offsetLeft;
+        toY = e.pageY - this.offsetTop;
+        if (mouseDown) {
+            context.clearRect(0, 0, context.canvas.width, context.canvas.height);
+            var w = Math.min(toX - startX);
+            var h = Math.min(toY - startY);
+            context.strokeRect(startX, startY, w, h);
+        }
+    });
+
+</script>-->
